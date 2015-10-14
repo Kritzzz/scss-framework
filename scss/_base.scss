@@ -2,8 +2,63 @@
 *	Base Styles
 */
 
-body {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
+html {
+    color: $color-body-text;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/**
+* 	Links
+*/
+
 a {
+    color: $color-links;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: $color-links-hover;
+}
+
+/**
+* 	Buttons
+*/
+
+.button {
+    font: inherit;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
 }

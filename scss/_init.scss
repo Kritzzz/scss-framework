@@ -5,16 +5,17 @@
 */
 
 // Fonts
+
 $font1: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font2: Georgia, serif;
 
-// = Colors
-// -----------------------------
+$base-font-size: 100%;
+$base-line-height: 1.625;
 
-// Graphic chart
-$main-color: #df2e30;
-$blue: #1894c4;
-$facebook: #3b5998;
-$twitter: #43bfe1;
+// Colors
 
+$color-main: #df2e30;
+$color-body-text: #333;
 
+$color-links: $color-body-text;
+$color-links-hover: $color-main;

@@ -1,3 +1,6 @@
 [submodule "scss/mixins"]
 	path = scss/mixins
 	url = https://Kritzzz@github.com/Kritzzz/SCSS-Mixins.git
+[submodule "scss/grid"]
+	path = scss/grid
+	url = git@github.com:Kritzzz/scss-grid.git

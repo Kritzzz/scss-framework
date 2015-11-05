@@ -1,24 +1,24 @@
 @charset "UTF-8";
 
 //
-//	Site variabls
+//	Site variables
 //
 
 // Typography settings
 
-$base-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-secondary: Georgia, serif;
+$base-font--primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font--secondary: Georgia, "Times New Roman", serif;
 
 $base-font-size: 100%;
 $base-line-height: 1.625;
 
 // Color settings
 
-$color-main: #df2e30;
-$color-body-text: #333;
+$color__main: #df2e30;
+$color__body-text: #333;
 
-$color-links: $color-body-text;
-$color-links-hover: $color-main;
+$color__links: $color__body-text;
+$color__links--hover: $color__main;
 
 $red: 	#E74C3C;
 $blue:	#3498DB;
@@ -32,6 +32,6 @@ $column-margin: 1.4%;
 
 // Breakpoints
 
-$bp-small: 	20em;
-$bp-medium: 60em;
-$bp-large: 	68.75em;
+$breakpoint--small: 	20em;
+$breakpoint--medium: 	60em;
+$breakpoint--large: 	68.75em;

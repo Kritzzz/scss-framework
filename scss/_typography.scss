@@ -16,7 +16,7 @@ h2 {
   line-height: 1.3em;
   font-weight: 400;
   margin-bottom: .5em;
-  color: $color-main;
+  color: $color__main;
 }
 h3 {
   font-size: 1.4em;
@@ -29,9 +29,21 @@ h4 {
   font-weight: 600;
   line-height: 1.5em;
   margin-bottom: .5em;
-  color: $color-main;
+  color: $color__main;
 }
 h1 a, h2 a, h3 a, h4 a {
   color: inherit;
   border: 0 !important;
+}
+
+p {
+
+}
+
+strong {
+
+}
+
+em {
+
 }

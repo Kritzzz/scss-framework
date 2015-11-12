@@ -1,0 +1,24 @@
+/**
+*   Buttons
+*/
+
+.button {
+    font: inherit;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+

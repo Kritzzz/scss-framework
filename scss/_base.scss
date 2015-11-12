@@ -1,24 +1,35 @@
-/*
+/**
 *	Base Styles
 */
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 html {
-    color: $color-body-text;
+    box-sizing: border-box;
+
+    color: $color__body-text;
+    font-family: $base-font--primary;
     font-size: $base-font-size;
     line-height: $base-line-height;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
 body {
 
 }
+
+
+/**
+*   Enable responsive images
+*/
 
 img {
     display: block;
@@ -26,39 +37,40 @@ img {
     height: auto;
 }
 
+
 /**
 * 	Links
 */
 
 a {
-    color: $color-links;
+    color: $color__links;
     text-decoration: none;
+
+    &:hover, &:focus {
+        color: $color__links--hover;
+    }
+    &:visited {
+
+    }
+    &:active {
+
+    }
+
 }
 
-a:hover,
-a:focus {
-    color: $color-links-hover;
-}
 
-/**
-* 	Buttons
+/*
+*   Lists (ul, ol)
 */
 
-.button {
-    font: inherit;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
+ul,
+ol {
 
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-        text-decoration: none;
-    }
+}
 
-    &::-moz-focus-inner {
-        border: 0;
-        padding: 0;
+ul {
+    li {
+
     }
 }
+

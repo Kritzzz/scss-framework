@@ -1,15 +1,25 @@
-/*
+@charset 'utf-8';
+
+/**
 *	Author: Christoph Müller
 *	Web: http://positionabsolute.de
 *
+*	Version: 0.1a
+*
+*	LICENSE: 	Licensed under the MIT license
+*				http://opensource.org/licenses/MIT
+*
+*	Copyright (c) 2015 Christoph Müller
 */
 
 
-@import "reset";
-@import "init";
+@import "variables";
+@import "functions";
 @import "mixins/mixins";
+@import "reset";
 @import "grid/grid";
 @import "base";
-@import "layout";
 @import "typography";
+@import "layout";
 @import "style";
+@import "helpers";

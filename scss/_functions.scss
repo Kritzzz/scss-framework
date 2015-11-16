@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-//--------------------
+//-------------
 //	Functions
-//--------------------
+//-------------
 
-@function em($pixels, $context: $base-fonz-size--px) {
-  @return #{$pixels/$context}em;
+@function em($pixels, $context: $font-size--base) {
+    @return #{$pixels/$context}em;
 }
 
 @function type-scale($level) {
-  @return map-get($type-scale, $level);
+    @return map-get($type-scale, $level);
 }

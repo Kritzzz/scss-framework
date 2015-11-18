@@ -1,0 +1,180 @@
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <title>SCSS Framework</title>
+    <link type="text/css" rel="stylesheet" href="http://khaleesi.local:5757/css/main_min.css?now=1447881679294">
+
+    <style>
+    .test-block {
+        padding: 3em 0;
+        border-bottom: 1px solid #E2E2E2;
+    }
+
+    .col--colored {
+        margin-bottom: 0.75em;
+        padding: 7px 0;
+        background-color: #DDD;
+        text-align: center;
+    }
+
+    .test-block__main {
+        margin-bottom: 0;
+    }
+
+    .test-block__sub {
+        font-size: 1.375em;
+        color: #AAA;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="site-container">
+
+        <section class="test-block">
+
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+
+        </section>
+
+        <section class="test-block">
+
+            <h1 class="test-block__main">Button Test</h1>
+            <h2 class="test-block__sub">Simple, flat styled buttons.</h2>
+
+            <button class="button button--green">
+                This is a button
+            </button>
+
+            <button class="button button--blue">
+                This is a button
+            </button>
+
+            <button class="button button--red">
+                This is a button
+            </button>
+
+            <button class="button button--yellow">
+                This is a button
+            </button>
+
+            <button class="button button--outline">
+                This is a button
+            </button>
+
+        </section>
+
+        <section class="test-block">
+
+            <h1 class="test-block__main">Typography Test</h1>
+            <h2 class="test-block__sub">Does this line-height make me look fat?</h2>
+
+            <p><strong>The beginning of this text is important.</strong> Paragraphs have a font-size of 1em - in thise case 16px - and a resulting line-height of 26px (1.625 * 16px), which gives the lines breathing space and makes the text easier to read.</p>
+
+            <p>Each paragraph also has a bottom margin of the same 26px used for the line-height. However, not all paragraphs have to look the same. <em>This part is emphasized because it's probably important!</em> Paragraphs might have <a href="#">inline links</a>. Amet quibusdam quasi pariatur? Repudiandae tempora impedit reiciendis ex? Rem odio quae quidem voluptas doloribus dolor dignissimos quos assumenda dolorum, pariatur obcaecati architecto, repellendus illum maiores. Nihil officiis dolor eligendi derit cumque sapiente: <a href="#">This is another link</a>. Inventore sed rem iure natus possimus delectus quisquam sint numquam sequi iste quod officia.</p>
+
+            <h4>Heading 4</h4>
+
+            <p>Headings also get the same bottom-margin of 26px. Minus atque laborum molestiae sit facere adipisci tempore, eveniet totam maiores? Aspernatur repellat molestiae magni tenetur dolore? Molestiae eaque provident minus sapiente, eius veritatis eos maiores dolorum. Rerum perferendis iure aperiam rem perspiciatis eius cumque placeat, mollitia deserunt qui. In incidunt, magni.</p>
+
+        </section>
+
+        <section class="test-block">
+            <h1 class="test-block__main">Lists Test</h1>
+            <h2 class="test-block__sub">Ordered, unordered, nested</h2>
+
+            <div class="row">
+                <div class="col-6">
+                    <ul>
+                        <li>Unordered list element</li>
+                        <li>Unordered list element</li>
+                        <li>Unordered list element
+                            <ol>
+                                <li>Nested, ordered elements</li>
+                                <li>Nested, ordered elements</li>
+                                <li>Nested, ordered elements</li>
+                            </ol>
+                        </li>
+                        <li>Unordered list element</li>
+                        <li>Unordered list element</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ol>
+                        <li>Ordered list element</li>
+                        <li>Ordered list element
+                            <ul>
+                                <li>Nested, unordered element</li>
+                                <li>Nested, unordered element</li>
+                                <li>Nested, unordered element</li>
+                            </ul>
+                        </li>
+                        <li>Ordered list element</li>
+                        <li>Ordered list element</li>
+                        <li>Ordered list element</li>
+                    </ol>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="test-block">
+
+            <h1 class="test-block__main">Grid Test</h1>
+            <h2 class="test-block__sub">Compiled for 12 columns with 1.4% column-gutter</h2>
+
+            <div class="row">
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+                <div class="col-1 col--colored">.col-1</div>
+            </div>
+            <div class="row">
+                <div class="col-2 col--colored">.col-2</div>
+                <div class="col-2 col--colored">.col-2</div>
+                <div class="col-2 col--colored">.col-2</div>
+                <div class="col-2 col--colored">.col-2</div>
+                <div class="col-2 col--colored">.col-2</div>
+                <div class="col-2 col--colored">.col-2</div>
+            </div>
+            <div class="row">
+                <div class="col-3 col--colored">.col-3</div>
+                <div class="col-3 col--colored">.col-3</div>
+                <div class="col-3 col--colored">.col-3</div>
+                <div class="col-3 col--colored">.col-3</div>
+            </div>
+            <div class="row">
+                <div class="col-4 col--colored">.col-4</div>
+                <div class="col-4 col--colored">.col-4</div>
+                <div class="col-4 col--colored">.col-4</div>
+            </div>
+            <div class="row">
+                <div class="col-6 col--colored">.col-6</div>
+                <div class="col-6 col--colored">.col-6</div>
+            </div>
+            <div class="row">
+                <div class="col-12 col--colored">.col-12</div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+</html>

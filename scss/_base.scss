@@ -45,6 +45,7 @@ a {
 
     &:hover, &:focus {
         color: $color__links--hover;
+        border-bottom: 2px solid $color__links--hover;
     }
     &:visited {
 
@@ -62,12 +63,14 @@ a {
 
 ul,
 ol {
+    li > {
+        ul,
+        ol {
+            margin-top:     10px;
+            margin-bottom:  10px;
 
-}
-
-ul {
-    li {
-
+            padding-left: 30px;
+        }
     }
 }
 

@@ -30,19 +30,29 @@ $type-scale: (
 //  COLORS
 //
 
-$color__main: #df2e30;
-$color__body-text: #333;
-
-$color__links: $color__body-text;
-$color__links--hover: $color__main;
-
-$red: 	#E74C3C;
-$blue:	#3498DB;
-$green:	#2ECC71;
+$red:       #E74C3C;
+$blue:      #3498DB;
+$green:     #2ECC71;
+$yellow:    #F1C40F;
 
 $gray--light:   #FBFBFB;
 $gray--medium:  #E8E8E8;
 $gray--dark:    #98A89E;
+
+$color__main: #df2e30;
+$color__body-text: #333;
+
+$color__links: $color__main;
+$color__links--hover: $color__main;
+
+$color__button--primary: $green;
+
+
+//
+//  Spacing
+//
+
+$base-spacing-unit: 20px;
 
 
 //
@@ -58,7 +68,7 @@ $column-margin: 1.4%;
 //
 
 $breakpoints: (
-    bp--small:  em(320px),
-    bp--medium: em(720px),
-    bp--large:  em(1100px),
+    bp--small:  px-to-em(320px),
+    bp--medium: px-to-em(720px),
+    bp--large:  px-to-em(1100px),
 );

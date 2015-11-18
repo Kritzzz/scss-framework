@@ -4,7 +4,7 @@
 //	Functions
 //-------------
 
-@function em($pixels, $context: $font-size--base) {
+@function px-to-em($pixels, $context: $font-size--base) {
     @return #{$pixels/$context}em;
 }
 

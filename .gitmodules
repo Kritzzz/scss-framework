@@ -4,3 +4,6 @@
 [submodule "scss/grid"]
 	path = scss/grid
 	url = git@github.com:Kritzzz/scss-grid.git
+[submodule "scss/normalize"]
+	path = scss/normalize
+	url = https://Kritzzz@github.com/necolas/normalize.css.git

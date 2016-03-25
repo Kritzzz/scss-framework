@@ -7,3 +7,6 @@
 [submodule "scss/normalize"]
 	path = scss/normalize
 	url = https://Kritzzz@github.com/necolas/normalize.css.git
+[submodule "scss/toast"]
+	path = scss/toast
+	url = https://Kritzzz@github.com/daneden/Toast.git

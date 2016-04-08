@@ -15,17 +15,6 @@ $font-family--secondary: Georgia, "Times New Roman", serif;
 $font-size--base: 16px;
 $line-height--base: 1.625;
 
-$type-scale: (
-    0: 0.8rem,
-    1:  1rem,
-    2:  1.5625rem,
-    3:  1.9375rem,
-    4:  2.441rem,
-    5:  3.052rem,
-    6:  3.815rem,
-);
-
-
 //
 //  COLORS
 //
@@ -68,7 +57,7 @@ $column-margin: 1.4%;
 //
 
 $breakpoints: (
-    bp--small:  px-to-em(320px),
-    bp--medium: px-to-em(720px),
-    bp--large:  px-to-em(1100px),
+    bp--small:  ptoe(320px),
+    bp--medium: ptoe(720px),
+    bp--large:  ptoe(1100px),
 );

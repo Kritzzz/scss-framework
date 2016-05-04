@@ -1,38 +1,44 @@
-<html lang="en" class="">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
     <title>SCSS Framework</title>
-    <link type="text/css" rel="stylesheet" href="http://khaleesi.local:5757/css/main_min.css?now=1447881679294">
+    <link type="text/css" rel="stylesheet" href="assets/styles/main.min.css">
+    <script src="assets/scripts/dist/scripts.min.js"></script>
+    <link rel="stylesheet" href="">
 
     <style>
     .test-block {
         padding: 3em 0;
         border-bottom: 1px solid #E2E2E2;
     }
-
     .col--colored {
         margin-bottom: 0.75em;
         padding: 7px 0;
         background-color: #DDD;
         text-align: center;
     }
-
     .test-block__main {
         margin-bottom: 0;
     }
-
     .test-block__sub {
         font-size: 1.375em;
         color: #AAA;
     }
     </style>
+
+
 </head>
 
 <body>
 
     <div class="site-container">
+
+        <div class="test-block">
+            <h1>SVG Test</h1>
+        </div>
 
         <section class="test-block">
 
@@ -91,31 +97,33 @@
             <h1 class="test-block__main">Lists Test</h1>
             <h2 class="test-block__sub">Ordered, unordered, nested</h2>
 
-            <div class="row">
-                <div class="col-6">
+            <div class="grid">
+                <div class="grid__col grid__col--1-of-2">
                     <ul>
                         <li>Unordered list element</li>
                         <li>Unordered list element</li>
                         <li>Unordered list element
-                            <ol>
-                                <li>Nested, ordered elements</li>
-                                <li>Nested, ordered elements</li>
-                                <li>Nested, ordered elements</li>
-                            </ol>
+                            <ul>
+                                <li>Nested, unordered elements</li>
+                                <li>Nested, unordered elements</li>
+                                <li>Nested, unordered elements</li>
+                            </ul>
                         </li>
+                        <li>Unordered list element</li>
                         <li>Unordered list element</li>
                         <li>Unordered list element</li>
                     </ul>
                 </div>
-                <div class="col-6">
+                <div class="grid__col grid__col--1-of-2">
                     <ol>
                         <li>Ordered list element</li>
+                        <li>Ordered list element</li>
                         <li>Ordered list element
-                            <ul>
-                                <li>Nested, unordered element</li>
-                                <li>Nested, unordered element</li>
-                                <li>Nested, unordered element</li>
-                            </ul>
+                            <ol>
+                                <li>Nested, ordered element</li>
+                                <li>Nested, ordered element</li>
+                                <li>Nested, ordered element</li>
+                            </ol>
                         </li>
                         <li>Ordered list element</li>
                         <li>Ordered list element</li>
@@ -124,53 +132,6 @@
                 </div>
             </div>
 
-        </section>
-
-        <section class="test-block">
-
-            <h1 class="test-block__main">Grid Test</h1>
-            <h2 class="test-block__sub">Compiled for 12 columns with 1.4% column-gutter</h2>
-
-            <div class="row">
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-                <div class="col-1 col--colored">.col-1</div>
-            </div>
-            <div class="row">
-                <div class="col-2 col--colored">.col-2</div>
-                <div class="col-2 col--colored">.col-2</div>
-                <div class="col-2 col--colored">.col-2</div>
-                <div class="col-2 col--colored">.col-2</div>
-                <div class="col-2 col--colored">.col-2</div>
-                <div class="col-2 col--colored">.col-2</div>
-            </div>
-            <div class="row">
-                <div class="col-3 col--colored">.col-3</div>
-                <div class="col-3 col--colored">.col-3</div>
-                <div class="col-3 col--colored">.col-3</div>
-                <div class="col-3 col--colored">.col-3</div>
-            </div>
-            <div class="row">
-                <div class="col-4 col--colored">.col-4</div>
-                <div class="col-4 col--colored">.col-4</div>
-                <div class="col-4 col--colored">.col-4</div>
-            </div>
-            <div class="row">
-                <div class="col-6 col--colored">.col-6</div>
-                <div class="col-6 col--colored">.col-6</div>
-            </div>
-            <div class="row">
-                <div class="col-12 col--colored">.col-12</div>
-            </div>
         </section>
 
     </div>

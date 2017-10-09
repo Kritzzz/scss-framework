@@ -31,7 +31,7 @@ var svgOutput = 'assets/images/svg/dist/'
 
 // Compile SCSS
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
     return gulp
         .src([scssMain, '!scss/mixins/**'])
         .pipe(plumber())
@@ -44,7 +44,7 @@ gulp.task('sass', function() {
         }))
         .pipe(rename({suffix: '.min'}))                 // find sass files in scss folder
         .pipe(sass({outputStyle: 'compact'}))        // run sass
-        .on('error', function(err) {
+        .on('error', (err) => {
             notify({
                 title: 'CSS Task'
             }).write(err.line + ': ' + err.message);
@@ -60,7 +60,7 @@ gulp.task('sass', function() {
 
 // Minify and concatenate scripts
 
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
     return gulp
         .src(jsMain)
         .pipe(jshint())
@@ -93,10 +93,10 @@ gulp.task('images', () => {
 
 // Combine svg sources into one file and generate <symbol> elements 
 
-gulp.task('svg', function () {
+gulp.task('svg', () => {
     return gulp
         .src(svgSource)
-        .pipe(svgmin(function (file) {
+        .pipe(svgmin((file) => {
             var prefix = path.basename(file.relative, path.extname(file.relative));
             return {
                 plugins: [{
@@ -115,7 +115,7 @@ gulp.task('svg', function () {
 
 // Static Server + watching scss/html files
 
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', ['sass'], () => {
 
     browserSync.init({
         server: "./",
@@ -126,7 +126,7 @@ gulp.task('serve', ['sass'], function() {
         }
     });
 
-    gulp.watch(scssMain, ['sass']).on('change', function (event) {
+    gulp.watch(scssMain, ['sass']).on('change',  (event) => {
            console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         });
     gulp.watch(jsMain, ['scripts']).on('change', browserSync.reload);;

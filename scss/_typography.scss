@@ -1,5 +1,6 @@
 /**
 *   Typography
+*   All base-typographic related elements 
 */
 
 h1,
@@ -9,27 +10,43 @@ h4,
 h5,
 h6,
 p {
-    margin-top: 0;
-    margin-bottom: $line-height--base * $font-size--base;    /* 1,625 * 16px */
+  margin-top: 0;
+  margin-bottom: $line-height--base * $font-size--base;    /* 1,625 * 16px */
 }
 
 
-h1 {@include font-size(32px);}
+h1 {
 
-h2 {@include font-size(28px);}
+}
 
-h3 {@include font-size(24px);}
+h2 {
 
-h4 {@include font-size(20px);}
+}
 
-h5 {@include font-size(18px);}
+h3 {
 
-h6 {@include font-size(16px);}
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
 
 p {
 
 }
 
-strong { font-weight: 700; }
+strong {
+  font-weight: 700;
+}
 
-em { }
+em {
+
+}

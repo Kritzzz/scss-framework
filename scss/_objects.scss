@@ -22,34 +22,15 @@
         border: 0;
         padding: 0;
     }
-
-    /**
-    *   This could be solved more elegantly with a sass-map.
-    */
-
-    &--green {
-        color: darken($color__button--primary, 35%);
-        background-color: $color__button--primary;
-    }
-    &--blue {
-        color: darken($blue, 35%);
-        background-color: $blue;
-    }
-    &--red {
-        color: darken($red, 35%);
-        background-color: $red;
-    }
-    &--yellow {
-        color: darken($yellow, 35%);
-        background-color: $yellow;
-    }
-    &--outline {
-        padding: 6px 13px;
-        border: 2px solid $gray--dark;
-        background-color: transparent;
-        &:hover {
-            color: $color__main;
-            border: 2px solid #333;
-        }
-    }
+    
+    // Example button class
+    // &--outline {
+    //     padding: 6px 13px;
+    //     border: 2px solid $gray--dark;
+    //     background-color: transparent;
+    //     &:hover {
+    //         color: $color__main;
+    //         border: 2px solid #333;
+    //     }
+    // }
 }

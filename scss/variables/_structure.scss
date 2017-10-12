@@ -1,0 +1,18 @@
+/**
+ *  Structure settings
+ */
+
+$base-spacing-unit: 20px;
+
+// Grid Settings
+
+$column-count: 12;
+$column-margin: 1.4%;
+
+//  Breakpoints
+
+$breakpoints: (
+    bp--small:  ptoe(320px),
+    bp--medium: ptoe(720px),
+    bp--large:  ptoe(1100px),
+);

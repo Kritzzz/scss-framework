@@ -1,25 +1,27 @@
-@charset 'utf-8';
+@charset 'UTF-8';
 
 /**
 *	Author: Christoph Müller
 *	Web: http://positionabsolute.de
 *
-*	Version: 0.2.0
+*	Version: 0.3.0
 *
 *	LICENSE: 	Licensed under the MIT license
 *				http://opensource.org/licenses/MIT
 *
-*	Copyright (c) 2016 Christoph Müller
+*	Copyright (c) 2017 Christoph Müller
 */
 
 @import "functions";
-@import "variables";
+@import "variables/variables";
 @import "mixins/mixins";
+
 @import "normalize/normalize";
 @import "toast/scss/grid";
-@import "base";
-@import "typography";
-@import "objects";
-@import "components";
-@import "style";
+
+@import "base/base";
+@import "typography/typography";
+@import "site/site";
+@import "components/components";
+@import "forms/forms";
 @import "helpers";

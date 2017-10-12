@@ -1,8 +1,6 @@
-@charset "UTF-8";
-
-//-------------
-//	Functions
-//-------------
+/**
+ *  Functions
+ */
 
 @function ptoe($pixels, $context: $font-size--base) {
     @return #{$pixels/$context}em;

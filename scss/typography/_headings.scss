@@ -1,19 +1,17 @@
 /**
-*   Typography
-*   All base-typographic related elements 
-*/
+ *  Heading styles
+ */
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p {
+h6 {
   margin-top: 0;
+  clear: both;
   margin-bottom: $line-height--base * $font-size--base;    /* 1,625 * 16px */
 }
-
 
 h1 {
 
@@ -36,17 +34,5 @@ h5 {
 }
 
 h6 {
-
-}
-
-p {
-
-}
-
-strong {
-  font-weight: 700;
-}
-
-em {
 
 }

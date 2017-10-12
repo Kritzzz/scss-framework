@@ -1,0 +1,36 @@
+/**
+ *  Buttons
+ */
+
+.button {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  vertical-align: middle;
+  border-radius: 5px;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  // Example button class
+  // &--outline {
+  //     padding: 6px 13px;
+  //     border: 2px solid $gray--dark;
+  //     background-color: transparent;
+  //     &:hover {
+  //         color: $color__main;
+  //         border: 2px solid #333;
+  //     }
+  // }
+}

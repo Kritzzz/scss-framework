@@ -42,8 +42,8 @@ gulp.task('sass', () => {
                 }
             ]
         }))
-        .pipe(rename({suffix: '.min'}))                 // find sass files in scss folder
-        .pipe(sass({outputStyle: 'compact'}))        // run sass
+        .pipe(rename({suffix: '.min'}))              // find sass files in scss folder
+        .pipe(sass({outputStyle: 'compressed'}))     // run sass
         .on('error', (err) => {
             notify({
                 title: 'CSS Task'
@@ -55,8 +55,6 @@ gulp.task('sass', () => {
         .pipe(browserSync.stream())
         .pipe(notify({ message: 'Compiled Sass! :)' }));
 });
-
-
 
 // Minify and concatenate scripts
 
@@ -70,8 +68,6 @@ gulp.task('scripts', () => {
         .pipe(gulp.dest(jsOutput))
         .pipe(notify({ message: 'Scripts concatenated & minified! :)' }));
 });
-
-
 
 // Minify images
 
@@ -88,8 +84,6 @@ gulp.task('images', () => {
         }))
         .pipe(gulp.dest(imagesOutput));
 });
-
-
 
 // Combine svg sources into one file and generate <symbol> elements 
 
@@ -111,8 +105,6 @@ gulp.task('svg', () => {
         .pipe(gulp.dest(svgOutput));
 });
 
-
-
 // Static Server + watching scss/html files
 
 gulp.task('serve', ['sass'], () => {
@@ -133,8 +125,6 @@ gulp.task('serve', ['sass'], () => {
     gulp.watch("*.html").on('change', browserSync.reload);
 
 });
-
-
 
 // Default Gulp task
 

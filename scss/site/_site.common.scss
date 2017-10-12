@@ -1,0 +1,16 @@
+/**
+ *  Common site elements
+ */
+
+.site-container {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 1em;
+
+  @include respond-to(bp--large) {
+    max-width: px-to-em(960px);
+    padding: 0;
+  }
+}

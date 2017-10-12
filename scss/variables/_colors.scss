@@ -17,5 +17,8 @@ $color__body-text: #333;
 
 $color__links: $color__main;
 $color__links--hover: $color__main;
+$color__links--visited: inherit;
+
+$color__input-text: $gray--medium;
 
 $color__button--primary: $green;

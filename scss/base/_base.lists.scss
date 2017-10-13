@@ -54,8 +54,25 @@ a {
   }
 
   &:active {
-
+    
   }
 }
 
-@import 'base.lists';
+
+
+/*
+*   Lists (ul, ol)
+*/
+
+ul,
+ol {
+  li> {
+    ul,
+    ol {
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      padding-left: 30px;
+    }
+  }
+}

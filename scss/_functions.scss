@@ -3,9 +3,9 @@
  */
 
 @function ptoe($pixels, $context: $font-size--base) {
-    @return #{$pixels/$context}em;
+  @return #{$pixels/$context}em;
 }
 
 @function type-scale($level) {
-    @return map-get($type-scale, $level);
+  @return map-get($type-scale, $level);
 }

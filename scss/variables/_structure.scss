@@ -4,15 +4,23 @@
 
 $base-spacing-unit: 20px;
 
-// Grid Settings
-
-$column-count: 12;
-$column-margin: 1.4%;
-
 //  Breakpoints
-
 $breakpoints: (
-    bp--small:  ptoe(320px),
-    bp--medium: ptoe(720px),
-    bp--large:  ptoe(1100px),
+  bp--small:  ptoe(480px),
+  bp--medium: ptoe(720px),
+  bp--large:  ptoe(1100px),
 );
+
+// Grid Settings
+$toast-col-groups: (2, 3, 12);
+
+// Gutter width
+$toast-gutter-width: 20px;
+
+// Breakpoints
+$toast-breakpoint-medium: 720px;
+$toast-breakpoint-small: 480px;
+
+// Pushes and pulls
+$toast-pushes: false;
+$toast-pulls: false;

@@ -3,29 +3,31 @@
  */
 
 .contact-input {
-    width: 100%;
-    max-width: 100%;
-    padding: 12px 10px;
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 10px;
 
-    appearance: none;
-    background: transparent;
-    border-radius: 0;  
+  appearance: none;
+  background: transparent;
+  border-radius: 0;
 
-    border: 1px solid $color__input-text;
+  border: 1px solid $color__input-text;
 
-    &::-webkit-input-placeholder {
-       color: $color__input-text;
-    }
+  &::-webkit-input-placeholder {
+    color: $color__input-text;
+  }
 
-    &:-moz-placeholder { /* Firefox 18- */
-       color: $color__input-text;  
-    }
+  &:-moz-placeholder {
+    /* Firefox 18- */
+    color: $color__input-text;
+  }
 
-    &::-moz-placeholder {  /* Firefox 19+ */
-       color: $color__input-text;  
-    }
+  &::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $color__input-text;
+  }
 
-    &:-ms-input-placeholder {  
-       color: $color__input-text;  
-    }
+  &:-ms-input-placeholder {
+    color: $color__input-text;
+  }
 }

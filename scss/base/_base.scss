@@ -1,6 +1,6 @@
 /**
-* Base Styles
-*/
+ * Base Styles
+ */
 
 html {
   box-sizing: border-box;
@@ -11,21 +11,17 @@ html {
   line-height: $line-height--base;
 }
 
-
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
 
-
 body {}
 
-
-
 /**
-*   Enable responsive images
-*/
+ *   Enable responsive images
+ */
 
 img {
   display: block;
@@ -33,29 +29,5 @@ img {
   height: auto;
 }
 
-
-
-/**
-*   Links
-*/
-
-a {
-  color: $color__links;
-  text-decoration: none;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: $color__links--hover;
-    border-bottom: 2px solid $color__links--hover;
-  }
-  &:visited {
-    color: $color__links--visited;
-  }
-
-  &:active {
-
-  }
-}
-
+@import 'base.links';
 @import 'base.lists';

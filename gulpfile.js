@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -6,6 +8,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync').create(),
     jshint = require('gulp-jshint'),
+    stylish = require('jshint-stylish'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
@@ -26,7 +29,7 @@ var imagesMain = './assets/images/*';
 var imagesOutput = './assets/images/dist/';
 
 var svgSource = 'assets/images/svg/*';
-var svgOutput = 'assets/images/svg/dist/'
+var svgOutput = 'assets/images/svg/dist/';
 
 
 // Compile SCSS
@@ -59,9 +62,9 @@ gulp.task('sass', () => {
 gulp.task('scripts', () => {
   return gulp
     .src(jsMain)
-    .pipe(jshint())
     .pipe(plumber())
-    .pipe(jshint.reporter('default'))
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
     .pipe(concat('scripts.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(jsOutput))
@@ -98,7 +101,7 @@ gulp.task('svg', () => {
             minify: true
           }
         }]
-      }
+      };
     }))
     .pipe(svgstore())
     .pipe(gulp.dest(svgOutput));
@@ -109,7 +112,7 @@ gulp.task('svg', () => {
 gulp.task('serve', ['sass'], () => {
 
   browserSync.init({
-    server: "./",
+    server: './',
     //proxy: "localdomain.static",
     open: false,
     ghostMode: {
@@ -120,8 +123,8 @@ gulp.task('serve', ['sass'], () => {
   gulp.watch(scssMain, ['sass']).on('change', (event) => {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });
-  gulp.watch(jsMain, ['scripts']).on('change', browserSync.reload);;
-  gulp.watch("*.html").on('change', browserSync.reload);
+  gulp.watch(jsMain, ['scripts']).on('change', browserSync.reload);
+  gulp.watch('*.html').on('change', browserSync.reload);
 
 });
 

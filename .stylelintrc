@@ -3,5 +3,6 @@
     "number-leading-zero": "always",
     "number-max-precision": 3,
     "number-no-trailing-zeros": true
-  }
+  },
+  ignoreFiles: ['scss/toast/scss/_grid.scss']
 }

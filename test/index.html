@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
     <title>SCSS Framework</title>
-    <link type="text/css" rel="stylesheet" href="style.css">
-    <script src="assets/scripts/dist/scripts.min.js"></script>
-    <link rel="stylesheet" href="">
+    <link type="text/css" rel="stylesheet" href="../style.css">
+    <script src="../assets/scripts/dist/scripts.min.js"></script>
 
     <style>
     .test-block {
@@ -27,6 +26,10 @@
         font-size: 1.375em;
         color: #AAA;
     }
+
+    .foo {
+        background-color: #f5f3e6;
+    }
     </style>
 
 
@@ -37,7 +40,23 @@
     <div class="site-container">
 
         <div class="test-block">
-            <h1>SVG Test</h1>
+            <h1>Flex Grid</h1>
+
+            <div class="f-grid f-grid--gutters">
+                
+                <div class="f-grid-cell">
+                    <div class="foo">A</div>
+                </div>
+                
+                <div class="f-grid-cell">
+                    <div class="foo">B</div>
+                </div>
+                
+                <div class="f-grid-cell">
+                    <div class="foo">C</div>
+                </div>
+
+            </div>
         </div>
 
         <section class="test-block">

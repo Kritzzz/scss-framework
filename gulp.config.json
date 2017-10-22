@@ -2,11 +2,14 @@
   "styles": {
     "scss": "./scss/**/*.scss",
     "output": "./",
+    "outputName": "style.css",
+    "outputStyle": "compact",
     "ignore": "!scss/mixins/**"
   },
   "scripts": {
     "entry": "./assets/scripts/*.js",
-    "output": "./assets/scripts/dist/"
+    "output": "./assets/scripts/dist/",
+    "outputName": "scripts.min.js"
   },
   "images": {
     "input": "./assets/images/*",

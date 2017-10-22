@@ -31,7 +31,7 @@ gulp.task('sass', () => {
         console: true
       }]
     }))
-    .pipe(sass({ outputStyle: 'compressed' })) // run sass
+    .pipe(sass({ outputStyle: config.styles.outputStyle }))
     .on('error', (err) => {
       notify({
         title: 'CSS Task'
@@ -39,7 +39,7 @@ gulp.task('sass', () => {
       return this.emit('end');
     })
     .pipe(autoprefixer('last 2 versions', 'ie 9')) // run autoprefixer
-    .pipe(rename('style.css'))
+    .pipe(rename(config.styles.outputName))
     .pipe(gulp.dest(config.styles.output))
     .pipe(notify({ message: 'Compiled Sass! :)' }));
 });
@@ -52,7 +52,7 @@ gulp.task('scripts', () => {
     .pipe(plumber())
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
-    .pipe(concat('scripts.min.js'))
+    .pipe(concat(config.scripts.outputName))
     .pipe(uglify())
     .pipe(gulp.dest(config.scripts.output))
     .pipe(notify({ message: 'Scripts concatenated & minified! :)' }));

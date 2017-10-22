@@ -3,7 +3,7 @@
     "scss": "./scss/**/*.scss",
     "output": "./",
     "outputName": "style.css",
-    "outputStyle": "compact",
+    "outputStyle": "compressed",
     "ignore": "!scss/mixins/**"
   },
   "scripts": {

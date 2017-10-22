@@ -1,0 +1,19 @@
+{
+  "styles": {
+    "scss": "./scss/**/*.scss",
+    "output": "./",
+    "ignore": "!scss/mixins/**"
+  },
+  "scripts": {
+    "entry": "./assets/scripts/*.js",
+    "output": "./assets/scripts/dist/"
+  },
+  "images": {
+    "input": "./assets/images/*",
+    "output": "./assets/images/dist/",
+    "svg": {
+      "input": "assets/images/svg/*",
+      "output": "assets/images/svg/dist/"
+    }
+  }
+}

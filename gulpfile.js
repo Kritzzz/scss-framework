@@ -16,27 +16,14 @@ var gulp = require('gulp'),
     stylelint = require('gulp-stylelint'),
     svgstore = require('gulp-svgstore'),
     svgmin = require('gulp-svgmin'),
-    path = require('path');
-
-
-var scssMain = './scss/**/*.scss';
-var cssOutput = './';
-
-var jsMain = './assets/scripts/*.js';
-var jsOutput = './assets/scripts/dist/';
-
-var imagesMain = './assets/images/*';
-var imagesOutput = './assets/images/dist/';
-
-var svgSource = 'assets/images/svg/*';
-var svgOutput = 'assets/images/svg/dist/';
-
+    path = require('path'),
+    config = require('./gulp.config.json');
 
 // Compile SCSS
 
 gulp.task('sass', () => {
   return gulp
-    .src([scssMain, '!scss/mixins/**'])
+    .src([config.styles.scss, config.styles.ignore])
     .pipe(plumber())
     .pipe(stylelint({
       reporters: [{
@@ -53,7 +40,7 @@ gulp.task('sass', () => {
     })
     .pipe(autoprefixer('last 2 versions', 'ie 9')) // run autoprefixer
     .pipe(rename('style.css'))
-    .pipe(gulp.dest(cssOutput))
+    .pipe(gulp.dest(config.styles.output))
     .pipe(notify({ message: 'Compiled Sass! :)' }));
 });
 
@@ -61,20 +48,20 @@ gulp.task('sass', () => {
 
 gulp.task('scripts', () => {
   return gulp
-    .src(jsMain)
+    .src(config.scripts.entry)
     .pipe(plumber())
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
     .pipe(concat('scripts.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(jsOutput))
+    .pipe(gulp.dest(config.scripts.output))
     .pipe(notify({ message: 'Scripts concatenated & minified! :)' }));
 });
 
 // Minify images
 
 gulp.task('images', () => {
-  return gulp.src(imagesMain)
+  return gulp.src(config.images.input)
     .pipe(imagemin({
       progressive: true,
       optimizationLevel: 4,
@@ -84,14 +71,14 @@ gulp.task('images', () => {
       ],
       use: [pngquant()]
     }))
-    .pipe(gulp.dest(imagesOutput));
+    .pipe(gulp.dest(config.images.output));
 });
 
 // Combine svg sources into one file and generate <symbol> elements 
 
 gulp.task('svg', () => {
   return gulp
-    .src(svgSource)
+    .src(config.images.svg.input)
     .pipe(svgmin((file) => {
       var prefix = path.basename(file.relative, path.extname(file.relative));
       return {
@@ -104,7 +91,7 @@ gulp.task('svg', () => {
       };
     }))
     .pipe(svgstore())
-    .pipe(gulp.dest(svgOutput));
+    .pipe(gulp.dest(config.images.svg.output));
 });
 
 // Static Server + watching scss/html files
@@ -120,10 +107,10 @@ gulp.task('serve', ['sass'], () => {
     }
   });
 
-  gulp.watch(scssMain, ['sass']).on('change', (event) => {
+  gulp.watch(config.styles.scss, ['sass']).on('change', (event) => {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });
-  gulp.watch(jsMain, ['scripts']).on('change', browserSync.reload);
+  gulp.watch(config.scripts.entry, ['scripts']).on('change', browserSync.reload);
   gulp.watch('*.html').on('change', browserSync.reload);
 
 });

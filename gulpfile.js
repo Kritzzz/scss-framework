@@ -17,10 +17,11 @@ var gulp = require('gulp'),
     svgstore = require('gulp-svgstore'),
     svgmin = require('gulp-svgmin'),
     path = require('path'),
-    config = require('./gulp.config.json');
+    webpack = require('webpack-stream'),
+    webpackConfig = require('./webpack.config.js'),
+    config = require('./config.json');
 
 // Compile SCSS
-
 gulp.task('sass', () => {
   return gulp
     .src([config.styles.scss, config.styles.ignore])
@@ -45,17 +46,21 @@ gulp.task('sass', () => {
 });
 
 // Minify and concatenate scripts
-
 gulp.task('scripts', () => {
   return gulp
     .src(config.scripts.entry)
     .pipe(plumber())
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
-    .pipe(concat(config.scripts.outputName))
+    .pipe(webpack(webpackConfig))
     .pipe(uglify())
-    .pipe(gulp.dest(config.scripts.output))
-    .pipe(notify({ message: 'Scripts concatenated & minified! :)' }));
+    .pipe(gulp.dest(config.scripts.output));
+});
+
+// Wait for webpack to finish bundling JS assets before reloading browser
+gulp.task('scripts-watch', ['scripts'], (done) => {
+  browserSync.reload();
+  done();
 });
 
 // Minify images
@@ -74,8 +79,7 @@ gulp.task('images', () => {
     .pipe(gulp.dest(config.images.output));
 });
 
-// Combine svg sources into one file and generate <symbol> elements 
-
+// Combine svg sources into one file and generate <symbol> elements
 gulp.task('svg', () => {
   return gulp
     .src(config.images.svg.input)
@@ -94,8 +98,7 @@ gulp.task('svg', () => {
     .pipe(gulp.dest(config.images.svg.output));
 });
 
-// Static Server + watching scss/html files
-
+// Static Server + watch scss/js/html files
 gulp.task('serve', ['sass'], () => {
 
   browserSync.init({
@@ -110,11 +113,10 @@ gulp.task('serve', ['sass'], () => {
   gulp.watch(config.styles.scss, ['sass']).on('change', (event) => {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });
-  gulp.watch(config.scripts.entry, ['scripts']).on('change', browserSync.reload);
+  gulp.watch(config.scripts.input, ['scripts-watch']);
   gulp.watch('*.html').on('change', browserSync.reload);
 
 });
 
 // Default Gulp task
-
 gulp.task('default', ['serve']);

@@ -35,13 +35,11 @@ gulp.task('sass', () => {
     .on('error', (err) => {
       notify({
         title: 'CSS Task'
-      }).write(err.line + ': ' + err.message);
-      return this.emit('end');
+      }).write(err);
     })
     .pipe(autoprefixer('last 2 versions', 'ie 9')) // run autoprefixer
     .pipe(rename(config.styles.outputName))
     .pipe(gulp.dest(config.styles.output))
-    .pipe(notify({ message: 'Compiled Sass! :)' }));
 });
 
 // Minify and concatenate scripts
@@ -49,13 +47,14 @@ gulp.task('sass', () => {
 gulp.task('scripts', () => {
   return gulp
     .src(config.scripts.entry)
-    .pipe(plumber())
+    .pipe(plumber({
+      errorHandler: notify.onError("Error: <%= error.message %>")
+    }))
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
     .pipe(concat(config.scripts.outputName))
     .pipe(uglify())
     .pipe(gulp.dest(config.scripts.output))
-    .pipe(notify({ message: 'Scripts concatenated & minified! :)' }));
 });
 
 // Minify images

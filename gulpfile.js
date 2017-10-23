@@ -42,7 +42,6 @@ gulp.task('sass', () => {
     .pipe(autoprefixer('last 2 versions', 'ie 9')) // run autoprefixer
     .pipe(rename(config.styles.outputName))
     .pipe(gulp.dest(config.styles.output))
-    .pipe(notify({ message: 'Compiled Sass! :)' }));
 });
 
 // Minify and concatenate scripts

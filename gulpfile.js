@@ -7,9 +7,10 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync').create(),
+    eslint = require('gulp-eslint'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
-    uglify = require('gulp-uglify'),
+    uglify = require('gulp-uglify-es').default,
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
@@ -20,7 +21,6 @@ var gulp = require('gulp'),
     config = require('./gulp.config.json');
 
 // Compile SCSS
-
 gulp.task('sass', () => {
   return gulp
     .src([config.styles.scss, config.styles.ignore])
@@ -43,22 +43,22 @@ gulp.task('sass', () => {
 });
 
 // Minify and concatenate scripts
-
 gulp.task('scripts', () => {
   return gulp
     .src(config.scripts.entry)
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish))
+    .pipe(eslint())
+    .pipe(eslint.format())
     .pipe(concat(config.scripts.outputName))
-    .pipe(uglify())
+    .pipe(uglify().on('error', function(err) {
+      console.log(err);
+    }))
     .pipe(gulp.dest(config.scripts.output))
 });
 
 // Minify images
-
 gulp.task('images', () => {
   return gulp.src(config.images.input)
     .pipe(imagemin({
@@ -73,8 +73,7 @@ gulp.task('images', () => {
     .pipe(gulp.dest(config.images.output));
 });
 
-// Combine svg sources into one file and generate <symbol> elements 
-
+// Combine svg sources into one file and generate <symbol> elements
 gulp.task('svg', () => {
   return gulp
     .src(config.images.svg.input)
@@ -94,7 +93,6 @@ gulp.task('svg', () => {
 });
 
 // Static Server + watching scss/html files
-
 gulp.task('serve', ['sass'], () => {
 
   browserSync.init({
@@ -115,5 +113,4 @@ gulp.task('serve', ['sass'], () => {
 });
 
 // Default Gulp task
-
 gulp.task('default', ['serve']);

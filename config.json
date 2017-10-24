@@ -1,4 +1,5 @@
 {
+
   "styles": {
     "scss": "./scss/**/*.scss",
     "output": "./",
@@ -7,8 +8,9 @@
     "ignore": "!scss/mixins/**"
   },
   "scripts": {
-    "entry": "./assets/scripts/*.js",
-    "output": "./assets/scripts/dist/",
+    "entry": "./assets/scripts/scripts.js",
+    "input": "./assets/scripts/*.js",
+    "output": "./dist/",
     "outputName": "scripts.min.js"
   },
   "images": {
@@ -18,5 +20,6 @@
       "input": "assets/images/svg/*",
       "output": "assets/images/svg/dist/"
     }
-  }
+  },
+  "jsSourcemap": false
 }

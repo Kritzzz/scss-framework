@@ -8,8 +8,6 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync').create(),
     eslint = require('gulp-eslint'),
-    jshint = require('gulp-jshint'),
-    stylish = require('jshint-stylish'),
     uglify = require('gulp-uglify-es').default,
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
@@ -52,7 +50,7 @@ gulp.task('scripts', () => {
     }))
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(concat(config.scripts.outputName))
+    .pipe(webpack(webpackConfig))
     .pipe(uglify().on('error', function(err) {
       console.log(err);
     }))

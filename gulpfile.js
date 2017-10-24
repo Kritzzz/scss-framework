@@ -10,7 +10,6 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
     uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     stylelint = require('gulp-stylelint'),
@@ -41,7 +40,7 @@ gulp.task('sass', () => {
     })
     .pipe(autoprefixer('last 2 versions', 'ie 9')) // run autoprefixer
     .pipe(rename(config.styles.outputName))
-    .pipe(gulp.dest(config.styles.output))
+    .pipe(gulp.dest(config.styles.output));
 });
 
 // Minify and concatenate scripts

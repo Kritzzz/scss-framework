@@ -7,9 +7,8 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync').create(),
-    jshint = require('gulp-jshint'),
-    stylish = require('jshint-stylish'),
-    uglify = require('gulp-uglify'),
+    eslint = require('gulp-eslint'),
+    uglify = require('gulp-uglify-es').default,
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     stylelint = require('gulp-stylelint'),
@@ -47,12 +46,14 @@ gulp.task('scripts', () => {
   return gulp
     .src(config.scripts.entry)
     .pipe(plumber({
-      errorHandler: notify.onError("Error: <%= error.message %>")
+      errorHandler: notify.onError('Error: <%= error.message %>')
     }))
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish))
+    .pipe(eslint())
+    .pipe(eslint.format())
     .pipe(webpack(webpackConfig))
-    .pipe(uglify())
+    .pipe(uglify().on('error', function(err) {
+      console.log(err);
+    }))
     .pipe(gulp.dest(config.scripts.output));
 });
 

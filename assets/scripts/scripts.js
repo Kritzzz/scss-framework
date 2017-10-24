@@ -1,18 +1,16 @@
-'use strict';
+const App = {
 
-var App = {
-
-  init: function () {
+  init: () => {
 
   },
 
-  registerEventListeners: function () {
+  registerEventListeners: () => {
 
   },
 
-  mobileNavigation: function () {
+  mobileNavigation: () => {
 
-  }
+  },
 };
 
 App.init();

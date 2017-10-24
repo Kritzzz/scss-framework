@@ -17,7 +17,7 @@ var gulp = require('gulp'),
     path = require('path'),
     webpack = require('webpack-stream'),
     webpackConfig = require('./webpack.config.js'),
-    config = require('./config.json');
+    config = require('./config.js');
 
 // Compile SCSS
 gulp.task('sass', () => {

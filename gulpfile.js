@@ -11,14 +11,15 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
     uglify = require('gulp-uglify-es').default,
-    concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     stylelint = require('gulp-stylelint'),
     svgstore = require('gulp-svgstore'),
     svgmin = require('gulp-svgmin'),
     path = require('path'),
-    config = require('./gulp.config.json');
+    webpack = require('webpack-stream'),
+    webpackConfig = require('./webpack.config.js'),
+    config = require('./config.json');
 
 // Compile SCSS
 gulp.task('sass', () => {
@@ -39,7 +40,7 @@ gulp.task('sass', () => {
     })
     .pipe(autoprefixer('last 2 versions', 'ie 9')) // run autoprefixer
     .pipe(rename(config.styles.outputName))
-    .pipe(gulp.dest(config.styles.output))
+    .pipe(gulp.dest(config.styles.output));
 });
 
 // Minify and concatenate scripts
@@ -47,7 +48,7 @@ gulp.task('scripts', () => {
   return gulp
     .src(config.scripts.entry)
     .pipe(plumber({
-      errorHandler: notify.onError("Error: <%= error.message %>")
+      errorHandler: notify.onError('Error: <%= error.message %>')
     }))
     .pipe(eslint())
     .pipe(eslint.format())
@@ -55,7 +56,13 @@ gulp.task('scripts', () => {
     .pipe(uglify().on('error', function(err) {
       console.log(err);
     }))
-    .pipe(gulp.dest(config.scripts.output))
+    .pipe(gulp.dest(config.scripts.output));
+});
+
+// Wait for webpack to finish bundling JS assets before reloading browser
+gulp.task('scripts-watch', ['scripts'], (done) => {
+  browserSync.reload();
+  done();
 });
 
 // Minify images
@@ -92,7 +99,7 @@ gulp.task('svg', () => {
     .pipe(gulp.dest(config.images.svg.output));
 });
 
-// Static Server + watching scss/html files
+// Static Server + watch scss/js/html files
 gulp.task('serve', ['sass'], () => {
 
   browserSync.init({
@@ -107,7 +114,7 @@ gulp.task('serve', ['sass'], () => {
   gulp.watch(config.styles.scss, ['sass']).on('change', (event) => {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });
-  gulp.watch(config.scripts.entry, ['scripts']).on('change', browserSync.reload);
+  gulp.watch(config.scripts.input, ['scripts-watch']);
   gulp.watch('*.html').on('change', browserSync.reload);
 
 });

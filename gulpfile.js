@@ -35,8 +35,7 @@ gulp.task('sass', () => {
     .on('error', (err) => {
       notify({
         title: 'CSS Task'
-      }).write(err.line + ': ' + err.message);
-      return this.emit('end');
+      }).write(err);
     })
     .pipe(autoprefixer('last 2 versions', 'ie 9')) // run autoprefixer
     .pipe(rename(config.styles.outputName))
@@ -47,7 +46,9 @@ gulp.task('sass', () => {
 gulp.task('scripts', () => {
   return gulp
     .src(config.scripts.entry)
-    .pipe(plumber())
+    .pipe(plumber({
+      errorHandler: notify.onError("Error: <%= error.message %>")
+    }))
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
     .pipe(webpack(webpackConfig))
@@ -62,7 +63,6 @@ gulp.task('scripts-watch', ['scripts'], (done) => {
 });
 
 // Minify images
-
 gulp.task('images', () => {
   return gulp.src(config.images.input)
     .pipe(imagemin({
